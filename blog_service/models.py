@@ -18,5 +18,7 @@ class PostModel(models.Model):
 
     author = models.TextField(null=False, blank=False)
 
+    comments = models.ManyToManyField(CommentModel, blank=True)
+
     def __str__(self):
         return f'{self.title} - {self.author}'
