@@ -1,6 +1,15 @@
 from django.db import models
 
 
+class CommentModel(models.Model):
+
+    author = models.TextField(null=False, blank=False)
+    text = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return f'{self.author}'
+
+
 class PostModel(models.Model):
 
     title = models.CharField(max_length=255, null=False, blank=False)
