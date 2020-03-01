@@ -1,9 +1,9 @@
 import graphene
-from blog_service.graphql import types
+from blog_service.graphql import types, mutations
 from blog_service import models
 
 
-class Query(graphene.AbstractType):
+class Query(graphene.ObjectType):
 
     posts = graphene.List(types.PostType)
     post = graphene.Field(types.PostType, id=graphene.Int())
@@ -11,10 +11,10 @@ class Query(graphene.AbstractType):
     comments = graphene.List(types.CommentType)
 
 
-    def resolve_posts(self, info, **kwargs):
+    def resolve_posts(self, *args, **kwargs):
         return models.PostModel.objects.all()
 
-    def resolve_post(self, info, **kwargs):
+    def resolve_post(self, *args, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
@@ -22,5 +22,9 @@ class Query(graphene.AbstractType):
 
         return
 
-    def resolve_comments(self, info, **kwargs):
+    def resolve_comments(self, *args, **kwargs):
         return models.CommentModel.objects.all()
+
+
+class Mutation(graphene.ObjectType):
+    create_post = mutations.CreatePost.Field()
