@@ -3,7 +3,7 @@ from django.db import models
 
 class CommentModel(models.Model):
 
-    author = models.TextField(null=False, blank=False)
+    author = models.CharField(max_length=255, null=False, blank=False)
     text = models.TextField(null=False, blank=False)
 
     def __str__(self):
@@ -16,7 +16,7 @@ class PostModel(models.Model):
     description = models.TextField(null=False, blank=False)
     publish_date = models.DateTimeField(auto_now_add=True)
 
-    author = models.TextField(null=False, blank=False)
+    author = models.CharField(max_length=255, null=False, blank=False)
 
     comments = models.ManyToManyField(CommentModel, blank=True)
 
