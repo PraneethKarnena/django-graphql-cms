@@ -6,7 +6,7 @@ from blog_service import models
 class Query(graphene.ObjectType):
 
     posts = graphene.List(types.PostType)
-    post = graphene.Field(types.PostType, id=graphene.Int())
+    post = graphene.Field(types.PostType, id=graphene.ID())
 
     comments = graphene.List(types.CommentType)
 
@@ -28,3 +28,4 @@ class Query(graphene.ObjectType):
 
 class Mutation(graphene.ObjectType):
     create_post = mutations.CreatePost.Field()
+    update_post = mutations.UpdatePost.Field()
