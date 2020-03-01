@@ -1,0 +1,2 @@
+export GRAPHQL_CMS_SECRET_KEY=""
+export GRAPHQL_CMS_PLATFORM=""
