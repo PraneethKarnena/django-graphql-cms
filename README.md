@@ -12,3 +12,8 @@ A very simple Post & Comment system which is developed to demonstrate the basic 
 * `python manage.py makemigrations`
 * `python manage.py migrate`
 * `python manage.py runserver`
+
+
+## GraphQL
+
+Sample GraphQL queries/mutations can be found in the  `graphiql_samples.txt` file.
