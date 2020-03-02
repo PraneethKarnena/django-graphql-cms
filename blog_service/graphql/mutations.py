@@ -68,3 +68,25 @@ class UpdatePost(graphene.Mutation):
 
         return CreatePost(post=post)
 
+
+class CreateComment(graphene.Mutation):
+
+    comment = graphene.Field(types.CommentType)
+
+    class Arguments:
+        post_id = graphene.ID(required=True)
+        text = graphene.String(required=True)
+        author = graphene.String(required=True)
+
+    def mutate(self, *args, **kwargs):
+        text = kwargs.get('text')
+        author = kwargs.get('author')
+        post_id = kwargs.get('post_id')
+
+        post = models.PostModel.objects.get(pk=post_id)
+        comment = models.CommentModel.objects.create(text=text, author=author)
+
+        post.comments.add(comment)
+        post.save()
+
+        return CreateComment(comment=comment)
