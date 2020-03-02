@@ -90,3 +90,17 @@ class CreateComment(graphene.Mutation):
         post.save()
 
         return CreateComment(comment=comment)
+
+
+class DeleteComment(graphene.Mutation):
+
+    comment = graphene.Field(types.CommentType)
+
+    class Arguments:
+        id = graphene.ID(required=True)
+
+    def mutate(self, *args, **kwargs):
+        id = kwargs.get('id')
+        _ = models.CommentModel.objects.get(pk=id).delete()
+
+        return

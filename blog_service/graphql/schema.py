@@ -30,3 +30,4 @@ class Mutation(graphene.ObjectType):
     create_post = mutations.CreatePost.Field()
     update_post = mutations.UpdatePost.Field()
     create_comment = mutations.CreateComment.Field()
+    delete_comment = mutations.DeleteComment.Field()
