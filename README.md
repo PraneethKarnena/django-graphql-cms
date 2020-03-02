@@ -16,4 +16,7 @@ A very simple Post & Comment system which is developed to demonstrate the basic 
 
 ## GraphQL
 
+* Queries: `post`, `posts` and `comments`
+* Mutations: `createPost`, `updatePost`, `createComment` and `deleteComment`
+
 Sample GraphQL queries/mutations can be found in the  `graphiql_samples.txt` file.
