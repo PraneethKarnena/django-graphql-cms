@@ -1,0 +1,75 @@
+# mutation {
+#   createPost (
+#     title: "Django is awesome!"
+#     description: "Django rocks. This is the description of the Post."
+#     author: "Praneeth K."
+#   ) {
+#     post {
+#       id
+#       title
+#     }
+# }
+# }
+
+# query {
+#   posts {
+#     title
+# 		description
+#     author
+#     comments {
+#       id
+#       text
+#       author
+#     }
+#   }
+# }
+
+
+# query {
+#   post(id:3) {
+#     title
+#     description
+#     author
+#   }
+# }
+
+# mutation {
+#   updatePost (
+#     id: 1,
+#     title: "I love Django!"
+#     description: "Django super rocks. This is the description of the Post."
+#     author: "K K."
+#   ) {
+#     post {
+#       id
+#       title
+#       description
+#       author
+#     }
+# }
+# }
+
+# mutation {
+#   createComment (
+#     text: "Django rocks"
+#     author: "JJ"
+#     postId: 1
+#   ) {
+#     comment {
+#       text
+#       author
+#       id
+#     }
+# }
+# }
+
+
+# mutation {
+#   deleteComment (
+#     id:4
+#   ) {
+#     comment {
+#       id
+#     }
+#   }
+# }
